@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
-
+    static public int cancion;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,37 +20,33 @@ public class MainActivity extends AppCompatActivity {
         int seleccion = bntSeleccionado.getId();
         switch(seleccion){
             case R.id.btn1:
-                Reproducir(1);
+                cancion=1;
                 break;
             case R.id.bnt2:
-                Reproducir(2);
+                cancion=2;
                 break;
             case R.id.btn3:
-                Reproducir(3);
+                cancion=3;
                 break;
             case R.id.btn4:
-                Reproducir(4);
+                cancion=4;
                 break;
             case R.id.btn5:
-                Reproducir(5);
+                cancion=5;
                 break;
             case R.id.btn6:
-                Reproducir(6);
+                cancion=6;
                 break;
             case R.id.btn7:
-                Reproducir(7);
+                cancion=7;
                 break;
             case R.id.btn8:
-                Reproducir(8);
+                cancion=8;
                 break;
         }
+        play(view);
     }
-
-    private void Reproducir(int i) {
-        play(i);
-}
-    public void play (int x){
-        MiSerivicioMusica miSerivicioMusica = new MiSerivicioMusica(x);
+    public void play (View view){
         Intent i = new Intent(this, MiSerivicioMusica.class);
         startService(i);
     }
